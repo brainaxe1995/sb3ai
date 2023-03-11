@@ -64,6 +64,11 @@ body {
   gap: 10px;
 }
 
+.ai .profile img {
+  width: 71%;
+  height: 71%;
+}
+
 .profile {
   width: 36px;
   height: 36px;
