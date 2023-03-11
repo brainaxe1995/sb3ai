@@ -12,14 +12,14 @@ body {
 }
 
 #app {
-  width: 100vw;
+  width: 48rem;
   height: 100vh;
   background: #343541;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  margin: 0 auto;
 }
 
 #chat_container {
