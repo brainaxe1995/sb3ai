@@ -121,10 +121,10 @@ form {
   margin: 0 auto;
   padding: 10px;
   background: #40414F;
-
   display: flex;
   flex-direction: row;
   gap: 10px;
+  margin-bottom: 15px;
 }
 
 textarea {
