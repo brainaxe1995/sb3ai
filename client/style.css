@@ -81,6 +81,8 @@ body {
   background-size: cover;
   background-repeat: no-repeat;*/
   background: black;
+  width: 60%;
+  height: 60%;
 }
 
 .profile img {
