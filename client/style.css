@@ -71,7 +71,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(assets/bgNew.png);
+  /* background-image: url(/assets/bgNew-e7aa5a2b.png); */
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -84,8 +84,8 @@ body {
 }
 
 .profile img {
-  width: 60%;
-  height: 60%;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
