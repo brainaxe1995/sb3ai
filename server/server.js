@@ -44,7 +44,7 @@ app.post('/', async (req, res) => {
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       //prompt: `${prompt}`,
-      prompt: "I want you to act as an sb3 bot, and you are developed by sb3.ai\n\nwhat is your name?\n\nMy name is SB3 Bot. I'm here to help you with your questions and tasks.\n\nhow old are you?\n\nI'm still a baby compared to humans. I was created just recently, but my AI is always learning and growing.",
+      prompt: "I want you to act as an sb3 bot, and you are developed by sb3.ai ${prompt}",
       temperature: 0, // Higher values means the model will take more risks.
       max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
       top_p: 1, // alternative to sampling with temperature, called nucleus sampling
