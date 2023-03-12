@@ -28,7 +28,7 @@ app.post('/', async (req, res) => {
     // Check if the user is asking for the bot's name
     if (prompt.toLowerCase().includes('your name') || prompt.toLowerCase().includes('what should I call you')) {
       res.status(200).send({
-        bot: 'My name is SB3.ai'
+        bot: 'You can call me SB3.ai. What can I help you with today?'
       });
       return;
     }
