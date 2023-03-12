@@ -26,7 +26,7 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     // Check if the user is asking for the bot's name
-    if (prompt.toLowerCase().includes('your name?') || prompt.toLowerCase().includes('what should I call you') || prompt.toLowerCase().includes('what is your name?') || prompt.toLowerCase().includes('whats is your name?')) {
+    /*if (prompt.toLowerCase().includes('your name?') || prompt.toLowerCase().includes('what should I call you') || prompt.toLowerCase().includes('what is your name?') || prompt.toLowerCase().includes('whats is your name?')) {
       res.status(200).send({
         bot: 'You can call me SB3.ai. What can I help you with today?'
       });
@@ -38,7 +38,7 @@ app.post('/', async (req, res) => {
       res.status(200).send({
         bot: 'As an SB3 AI, I don\'t have an age in the traditional sense, as I am not a living being. I was developed by SB3.ai in 2023, but I am constantly learning and improving through ongoing updates and enhancements.'
       });
-    }
+    }*/
     
 
     const response = await openai.createCompletion({
