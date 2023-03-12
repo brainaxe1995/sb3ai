@@ -123,13 +123,14 @@ body {
 form {
   width: 100%;
   max-width: 1280px;
-  margin: 0 auto;
+  margin: 0 auto 15px;
   padding: 10px;
-  background: #40414F;
+  background: #000000;
   display: flex;
   flex-direction: row;
   gap: 10px;
-  margin-bottom: 15px;
+  border: 2px solid transparent;
+  border-image: url(https://shibabets.gg/img/bgNew.png) 30 round;
 }
 
 textarea {
