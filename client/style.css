@@ -8,12 +8,12 @@
 }
 
 body {
-  background: #343541;
+  background: black;
 }
 
 #app {
   width: 48rem;
-  background: #343541;
+  background: black;
   display: flex;
   flex-direction: column;
   align-items: center;
