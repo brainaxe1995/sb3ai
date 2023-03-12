@@ -30,19 +30,14 @@ app.post('/', async (req, res) => {
       res.status(200).send({
         bot: 'You can call me SB3.ai. What can I help you with today?'
       });
-      return;
-    }
-    if (prompt.toLowerCase().includes('are you a human or a bot') || prompt.toLowerCase().includes('who are you?')) {
+    } else if (prompt.toLowerCase().includes('ar you a humane or bot') || prompt.toLowerCase().includes('who you are?')) {
       res.status(200).send({
         bot: 'As an SB3 AI, I am an artificial intelligence program designed to perform various tasks and provide information to users. I was developed using advanced machine learning techniques, and I am capable of processing large amounts of data, learning from examples, and improving my performance over time. My purpose is to assist users with a wide range of tasks, such as answering questions, providing recommendations, performing calculations, and more. Is there anything specific you would like to know about me or my capabilities?'
       });
-      return;
-    }
-    if (prompt.toLowerCase().includes('how old are you?') || prompt.toLowerCase().includes('what is your age?')) {
+    } else if (prompt.toLowerCase().includes('how old ar you?') || prompt.toLowerCase().includes('what is your age?')) {
       res.status(200).send({
         bot: 'As an SB3 AI, I don\'t have an age in the traditional sense, as I am not a living being. I was developed by SB3.ai in 2023, but I am constantly learning and improving through ongoing updates and enhancements.'
       });
-      return;
     }
     
 
