@@ -25,6 +25,14 @@ app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
+    // Check if the user is asking for the bot's name
+    if (prompt.toLowerCase().includes('your name') || prompt.toLowerCase().includes('what should I call you')) {
+      res.status(200).send({
+        bot: 'My name is SB3.ai'
+      });
+      return;
+    }
+
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `${prompt}`,
