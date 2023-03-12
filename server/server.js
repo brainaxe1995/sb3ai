@@ -26,11 +26,11 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     // Check if the user is asking for the bot's name
-    if (prompt.toLowerCase().includes('your name') || prompt.toLowerCase().includes('what should I call you')) {
+    if (prompt.toLowerCase().includes('your name?') || prompt.toLowerCase().includes('what should I call you') || prompt.toLowerCase().includes('what is your name?') || prompt.toLowerCase().includes('whats is your name?')) {
       res.status(200).send({
         bot: 'You can call me SB3.ai. What can I help you with today?'
       });
-    } else if (prompt.toLowerCase().includes('ar you a humane or bot') || prompt.toLowerCase().includes('who you are?')) {
+    } else if (prompt.toLowerCase().includes('ar you a humane or bot') || prompt.toLowerCase().includes('who you are?') || prompt.toLowerCase().includes('who are you?')) {
       res.status(200).send({
         bot: 'As an SB3 AI, I am an artificial intelligence program designed to perform various tasks and provide information to users. I was developed using advanced machine learning techniques, and I am capable of processing large amounts of data, learning from examples, and improving my performance over time. My purpose is to assist users with a wide range of tasks, such as answering questions, providing recommendations, performing calculations, and more. Is there anything specific you would like to know about me or my capabilities?'
       });
