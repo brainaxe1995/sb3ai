@@ -26,7 +26,7 @@ app.post('/', async (req, res) => {
     const prompt = req.body.prompt;
 
     // Check if the user is asking for the bot's name
-    if (prompt.toLowerCase().includes('your name') || prompt.toLowerCase().includes('what should I call you')) {
+    if (prompt.toLowerCase().includes('your name') || prompt.toLowerCase().includes('what should I call you') || prompt.toLowerCase().includes('who you are?')) {
       res.status(200).send({
         bot: 'You can call me SB3.ai. What can I help you with today?'
       });
