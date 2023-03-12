@@ -175,6 +175,6 @@ form img {
 @media (max-width: 767px) {
   /* For screens smaller than 768px, set the height to auto */
   #app {
-    height: 100vh;
+    height: cacl(100vh - 80px);
 }
 }
