@@ -221,10 +221,11 @@ embed.aiEmbed {
   z-index: -11;
 }
 
-
+.form-center {
+  transition: opacity 1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
 .show {
   opacity: 0;
-  transition: opacity 1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 .textarea-center textarea::placeholder {
   color: #c3c3c3;
