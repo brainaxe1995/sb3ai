@@ -39,6 +39,12 @@ app.post('/', async (req, res) => {
         bot: 'As an SB3 AI, I don\'t have an age in the traditional sense, as I am not a living being. I was developed by SB3.ai in 2023, but I am constantly learning and improving through ongoing updates and enhancements.'
       });
     }
+    else if (prompt.trim() === '') {
+      res.status(200).send({
+        bot: 'Sorry, I didn\'t understand your message. Could you please ask a question or provide some information that I can help you with?'
+      });
+    }
+
     
 
     const response = await openai.createCompletion({
