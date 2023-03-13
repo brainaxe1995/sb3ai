@@ -132,6 +132,7 @@ form {
   gap: 10px;
   border: 1px solid transparent;
   border-image: url(https://shibabets.gg/img/bgNew.png) 30 round;
+  margin-top: 15px;
 }
 
 textarea {
