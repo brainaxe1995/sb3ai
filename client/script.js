@@ -7,15 +7,15 @@ const chatContainer = document.querySelector('#chat_container')
 let loadInterval
 
 function loader(element) {
-    element.textContent = ''
+    element.textContent = 'Thinking'
 
     loadInterval = setInterval(() => {
         // Update the text content of the loading indicator
         element.textContent += '.';
 
         // If the loading indicator has reached three dots, reset it
-        if (element.textContent === '....') {
-            element.textContent = '';
+        if (element.textContent === 'Thinking....') {
+            element.textContent = 'Thinking';
         }
     }, 300);
 }
@@ -72,6 +72,10 @@ const handleSubmit = async (e) => {
 
     // to clear the textarea input 
     form.reset()
+
+    // Remove classes from form and textarea
+    form.classList.remove('form-center')
+
 
     // bot's chatstripe
     const uniqueId = generateUniqueId()
