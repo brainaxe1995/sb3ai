@@ -228,7 +228,10 @@ embed.aiEmbed {
   transition: opacity 1s cubic-bezier(0.250, 0.460, 0.450, 0.940);
 }
 .show {
-  display: none;
+
+  transition: opacity 1s ease-in-out, visibility 0s linear 1s;
+  opacity: 0;
+  visibility: hidden;
 }
 .textarea-center textarea::placeholder {
   color: #c3c3c3;
