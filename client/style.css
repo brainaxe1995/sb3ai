@@ -190,7 +190,7 @@ form{
 }
 }
 .form-center textarea::placeholder {
-
+  vertical-align: middle;
 }
 
 
