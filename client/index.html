@@ -21,14 +21,42 @@
     </div>
     <script>
       const embedElement = document.querySelector('.aiEmbed');
-      const formElement = document.querySelector('.form-center');
+const formElement = document.querySelector('.form-center');
 
-      embedElement.addEventListener('load', function() {
-        // The embedded content has finished loading, so wait 5 seconds and then show the form
-        setTimeout(function() {
-          formElement.classList.remove('show');
-        }, 4000);
-      });
+embedElement.addEventListener('load', function() {
+  // The embedded content has finished loading, so wait 5 seconds and then show the form
+  setTimeout(function() {
+    formElement.classList.remove('show');
+
+    const textarea = document.querySelector('textarea');
+    const placeholder = textarea.getAttribute('placeholder');
+    let index = 0;
+
+    function type() {
+      if (index < placeholder.length) {
+        textarea.setAttribute('placeholder', placeholder.slice(0, index + 1));
+        index++;
+        setTimeout(type, 75); // Reduce delay between each character
+      } else {
+        setTimeout(blinkCursor, 500);
+      }
+    }
+
+    function blinkCursor() {
+      const placeholderText = textarea.getAttribute('placeholder');
+      const lastChar = placeholderText.slice(-1);
+      if (lastChar === '|') {
+        textarea.setAttribute('placeholder', placeholderText.slice(0, -1));
+      } else {
+        textarea.setAttribute('placeholder', placeholderText + '|');
+      }
+      setTimeout(blinkCursor, 500);
+    }
+
+    type();
+  }, 4000);
+});
+
     </script>
     <script type="module" src="script.js"></script>
   </body>
