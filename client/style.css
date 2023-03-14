@@ -47,6 +47,7 @@ body {
 .wrapper {
   width: 100%;
   padding: 15px;
+  background: #0000007d;
 }
 
 .ai {
@@ -231,4 +232,5 @@ embed.aiEmbed {
 .textarea-center textarea::placeholder {
   color: #c3c3c3;
   font-size: 0.9rem;
+  text-align: center;
 }
