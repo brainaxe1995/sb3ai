@@ -148,8 +148,9 @@ button {
 }
 
 form img {
-  width: 51px;
+  width: 48px;
   height: auto;
+  margin-top: -5px;
 }
 
 
