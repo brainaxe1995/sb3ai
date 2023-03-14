@@ -188,6 +188,9 @@ form{
   text-align: center;
 }
 }
+.form-center textarea::placeholder {
+  text-align: center;
+}
 
 
 /*custom css*/
