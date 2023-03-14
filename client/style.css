@@ -185,11 +185,11 @@ form{
 }
 .form-center textarea::placeholder {
   font-size: 0.8rem !important;
-  text-align: center;
+
 }
 }
 .form-center textarea::placeholder {
-  text-align: center;
+
 }
 
 
