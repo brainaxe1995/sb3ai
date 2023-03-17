@@ -1,63 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SB3 - Your Ai</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div id="app">
-      <embed class="aiEmbed" src="https://slides.shibabets.io/new/aitest/"></embed>
-      <div id="chat_container"></div>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="icon" type="image/png" href="favicon.png" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>SB3 - Your Ai</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div id="app">
+            <embed class="aiEmbed" src="https://slides.shibabets.io/new/aitest/" />
+            <div id="chat_container"></div>
 
-      <form class="form-center hide">
-        <div class="textarea-center">
-            <textarea  name="prompt" rows="1" cols="1" placeholder="Ask me to do anything .."></textarea>
-            <button type="submit"><img src="assets/send.png" alt="send" /></button>
+            <form class="form-center hide">
+                <div class="textarea-center">
+                    <textarea name="prompt" rows="1" cols="1" placeholder="Ask me to do anything .."></textarea>
+                    <button type="submit"><img src="assets/send.png" alt="send" /></button>
+                </div>
+            </form>
         </div>
-      </form>
-    </div>
-    <script>
-      const embedElement = document.querySelector('.aiEmbed');
-const formElement = document.querySelector('.form-center');
+        <script>
+            const embedElement = document.querySelector(".aiEmbed");
+            const formElement = document.querySelector(".form-center");
 
-embedElement.addEventListener('load', function() {
-  // The embedded content has finished loading, so wait 5 seconds and then show the form
-  setTimeout(function() {
-    formElement.classList.remove('hide');
+            embedElement.addEventListener("load", function () {
+                // The embedded content has finished loading, so wait 5 seconds and then show the form
+                setTimeout(function () {
+                    formElement.classList.remove("hide");
 
-    const textarea = document.querySelector('textarea');
-    const placeholder = textarea.getAttribute('placeholder');
-    let index = 0;
+                    const textarea = document.querySelector("textarea");
+                    const placeholder = textarea.getAttribute("placeholder");
+                    let index = 0;
 
-    function type() {
-      if (index < placeholder.length) {
-        textarea.setAttribute('placeholder', placeholder.slice(0, index + 1));
-        index++;
-        setTimeout(type, 75); // Reduce delay between each character
-      } else {
-        setTimeout(blinkCursor, 500);
-      }
-    }
+                    function type() {
+                        if (index < placeholder.length) {
+                            textarea.setAttribute("placeholder", placeholder.slice(0, index + 1));
+                            index++;
+                            setTimeout(type, 75); // Reduce delay between each character
+                        } else {
+                            setTimeout(blinkCursor, 500);
+                        }
+                    }
 
-    function blinkCursor() {
-      const placeholderText = textarea.getAttribute('placeholder');
-      const lastChar = placeholderText.slice(-1);
-      if (lastChar === '|') {
-        textarea.setAttribute('placeholder', placeholderText.slice(0, -1));
-      } else {
-        textarea.setAttribute('placeholder', placeholderText + '|');
-      }
-      setTimeout(blinkCursor, 500);
-    }
+                    function blinkCursor() {
+                        const placeholderText = textarea.getAttribute("placeholder");
+                        const lastChar = placeholderText.slice(-1);
+                        if (lastChar === "|") {
+                            textarea.setAttribute("placeholder", placeholderText.slice(0, -1));
+                        } else {
+                            textarea.setAttribute("placeholder", placeholderText + "|");
+                        }
+                        setTimeout(blinkCursor, 500);
+                    }
 
-    type();
-  }, 4000);
-});
-
-    </script>
-    <script type="module" src="script.js"></script>
-  </body>
+                    type();
+                }, 4000);
+            });
+        </script>
+        <script type="module" src="script.js"></script>
+    </body>
 </html>
