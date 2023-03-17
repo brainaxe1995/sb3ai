@@ -202,6 +202,8 @@ form{
 }
 
 .form-center {
+  opacity: 1;
+  transition: opacity 1s cubic-bezier(0.19, 1, 0.22, 1); /* Add cubic-bezier transition */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -221,8 +223,7 @@ embed.aiEmbed {
 }
 
 .hide {
-  opacity: 0;
-  visibility: hidden;
+  opacity: 0 !important;
 }
 .textarea-center textarea::placeholder {
   color: #c3c3c3;

@@ -23,50 +23,60 @@
             </form>
         </div>
         <script>
-            const embedElement = document.querySelector(".aiEmbed");
-            const formElement = document.querySelector(".form-center");
-            const welcomeMsg = document.querySelector(".welcomMsg");
+          const embedElement = document.querySelector(".aiEmbed");
+const formElement = document.querySelector(".form-center");
+const welcomeMsg = document.querySelector(".welcomMsg");
 
-            embedElement.addEventListener("load", function () {
-                // The embedded content has finished loading, so wait 5 seconds and then show the form
-                setTimeout(function () {
-                  welcomeMsg.classList.add("show"); // Add "show" class to welcomeMsg element
+embedElement.addEventListener("load", function () {
+  // The embedded content has finished loading, so wait 5 seconds and then show the form
+  setTimeout(function () {
+    welcomeMsg.classList.add("show"); // Add "show" class to welcomeMsg element
     setTimeout(function () {
-        welcomeMsg.classList.remove("show"); // Remove "show" class from welcomeMsg element after 2 seconds
-        setTimeout(function () {
-            formElement.classList.remove("hide"); // Remove "hide" class from formElement element after a delay of 0.5 seconds
-        }, 1000);
+      welcomeMsg.classList.remove("show"); // Remove "show" class from welcomeMsg element after 2 seconds
+      setTimeout(function () {
+        formElement.classList.remove("hide"); // Remove "hide" class from formElement element after a delay of 0.5 seconds
+
+        const textarea = document.querySelector("textarea");
+        const placeholder = textarea.getAttribute("placeholder");
+        let index = 0;
+
+        function type() {
+          if (index < placeholder.length) {
+            textarea.setAttribute("placeholder", placeholder.slice(0, index + 1));
+            index++;
+            setTimeout(type, 75); // Reduce delay between each character
+          } else {
+            setTimeout(blinkCursor, 500);
+          }
+        }
+
+        function blinkCursor() {
+          const placeholderText = textarea.getAttribute("placeholder");
+          const lastChar = placeholderText.slice(-1);
+          if (lastChar === "|") {
+            textarea.setAttribute("placeholder", placeholderText.slice(0, -1));
+          } else {
+            textarea.setAttribute("placeholder", placeholderText + "|");
+          }
+          setTimeout(blinkCursor, 500);
+        }
+
+        // Wait for the textarea to become visible before starting the typing effect
+        const observer = new IntersectionObserver(function(entries, observer) {
+          if (entries[0].isIntersecting) {
+            observer.unobserve(textarea);
+            type();
+          }
+        }, { threshold: 0.5 });
+
+        observer.observe(textarea);
+      }, 500);
     }, 2000);
+  }, 1500);
+});
 
-                    const textarea = document.querySelector("textarea");
-                    const placeholder = textarea.getAttribute("placeholder");
-                    let index = 0;
-
-                    function type() {
-                        if (index < placeholder.length) {
-                            textarea.setAttribute("placeholder", placeholder.slice(0, index + 1));
-                            index++;
-                            setTimeout(type, 75); // Reduce delay between each character
-                        } else {
-                            setTimeout(blinkCursor, 500);
-                        }
-                    }
-
-                    function blinkCursor() {
-                        const placeholderText = textarea.getAttribute("placeholder");
-                        const lastChar = placeholderText.slice(-1);
-                        if (lastChar === "|") {
-                            textarea.setAttribute("placeholder", placeholderText.slice(0, -1));
-                        } else {
-                            textarea.setAttribute("placeholder", placeholderText + "|");
-                        }
-                        setTimeout(blinkCursor, 500);
-                    }
-
-                    type();
-                }, 4000);
-            });
         </script>
+        
         <script type="module" src="script.js"></script>
     </body>
 </html>
