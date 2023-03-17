@@ -220,7 +220,7 @@ embed.aiEmbed {
   z-index: -11;
 }
 
-.show {
+.hide {
   opacity: 0;
   visibility: hidden;
 }
