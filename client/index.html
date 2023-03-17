@@ -12,7 +12,7 @@
       <embed class="aiEmbed" src="https://slides.shibabets.io/new/aitest/"></embed>
       <div id="chat_container"></div>
 
-      <form class="form-center show">
+      <form class="form-center hide">
         <div class="textarea-center">
             <textarea  name="prompt" rows="1" cols="1" placeholder="Ask me to do anything .."></textarea>
             <button type="submit"><img src="assets/send.png" alt="send" /></button>
@@ -26,7 +26,7 @@ const formElement = document.querySelector('.form-center');
 embedElement.addEventListener('load', function() {
   // The embedded content has finished loading, so wait 5 seconds and then show the form
   setTimeout(function() {
-    formElement.classList.remove('show');
+    formElement.classList.remove('hide');
 
     const textarea = document.querySelector('textarea');
     const placeholder = textarea.getAttribute('placeholder');
