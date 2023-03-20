@@ -112,7 +112,7 @@ body {
   display: none;
 }
 
-form {
+/*form {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto 15px;
@@ -124,9 +124,17 @@ form {
   border: 1px solid transparent;
   border-image: url(https://shibabets.gg/img/bgNew.png) 30 round;
   margin-top: 15px;
+}*/
+
+form {
+  color: #ffffff80;
+  width: 100%;
+  min-height: 62px;
+  margin: 0 auto 15px;
 }
 
-textarea {
+
+/*textarea {
   width: 100%;
   color: #fff;
   font-size: 18px;
@@ -136,6 +144,17 @@ textarea {
   border: none;
   outline: none;
   resize: none;
+}*/
+textarea {
+  display: block;
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 20px 20px 20px 20px;
+  outline: none;
+  font-size: 16px;
+  height: 62px;
 }
 
 button {
@@ -145,7 +164,16 @@ button {
   background: transparent;
   display: flex;
   align-items: center;
+  margin-right: 13px;
 }
+
+/*button {
+  position: absolute !important;
+  width: 20px !important;
+  height: 20px !important;
+  top: 23px !important;
+  right: 40px !important;
+}*/
 
 form img {
   width: 48px;
@@ -175,7 +203,7 @@ form img {
     height: calc(100vh - 80px);
 }
 .form-center {
-  width: 90%;
+  min-width: 80% !important;
   left: 50%;
   top: 50%;
   width: 71% !important;
@@ -196,9 +224,15 @@ form{
 
 /*custom css*/
 .textarea-center {
-  width: 100%;
-  display: flex;
-  margin: 0 auto;
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    background: #ffffff0d;
+    border: 1px solid #ffffff1a;
+    color: #fff;
+    border-radius: 9px;
+    outline: none;
+    font-size: 16px;
 }
 
 .form-center {
