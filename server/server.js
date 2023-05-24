@@ -48,7 +48,7 @@ app.post('/', async (req, res) => {
     
 
     const response = await openai.createCompletion({
-      model: "text-davinci-004",
+      model: "text-davinci-003",
       prompt: `I want you to act as an SB3 ai. ${prompt}`,
       temperature: 0, // Higher values means the model will take more risks.
       max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
