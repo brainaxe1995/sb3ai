@@ -5,61 +5,22 @@ const form = document.querySelector('form')
 const chatContainer = document.querySelector('#chat_container')
 
 let loadInterval
+let conversationHistory = "";
 
 function loader(element) {
-    element.textContent = 'Thinking'
-
-    loadInterval = setInterval(() => {
-        // Update the text content of the loading indicator
-        element.textContent += '.';
-
-        // If the loading indicator has reached three dots, reset it
-        if (element.textContent === 'Thinking....') {
-            element.textContent = 'Thinking';
-        }
-    }, 300);
+    // Rest of your code
 }
 
 function typeText(element, text) {
-    let index = 0
-
-    let interval = setInterval(() => {
-        if (index < text.length) {
-            element.innerHTML += text.charAt(index)
-            index++
-        } else {
-            clearInterval(interval)
-        }
-    }, 20)
+    // Rest of your code
 }
 
-// generate unique ID for each message div of bot
-// necessary for typing text effect for that specific reply
-// without unique ID, typing text will work on every element
 function generateUniqueId() {
-    const timestamp = Date.now();
-    const randomNumber = Math.random();
-    const hexadecimalString = randomNumber.toString(16);
-
-    return `id-${timestamp}-${hexadecimalString}`;
+    // Rest of your code
 }
 
 function chatStripe(isAi, value, uniqueId) {
-    return (
-        `
-        <div class="wrapper ${isAi && 'ai'}">
-            <div class="chat">
-                <div class="profile">
-                    <img 
-                      src=${isAi ? bot : user} 
-                      alt="${isAi ? 'bot' : 'user'}" 
-                    />
-                </div>
-                <div class="message" id=${uniqueId}>${value}</div>
-            </div>
-        </div>
-    `
-    )
+    // Rest of your code
 }
 
 const handleSubmit = async (e) => {
@@ -70,12 +31,14 @@ const handleSubmit = async (e) => {
     // user's chatstripe
     chatContainer.innerHTML += chatStripe(false, data.get('prompt'))
 
+    // Append user's message to the conversation history
+    conversationHistory += `User: ${data.get('prompt')}\n`;
+
     // to clear the textarea input 
     form.reset()
 
     // Remove classes from form and textarea
     form.classList.remove('form-center')
-
 
     // bot's chatstripe
     const uniqueId = generateUniqueId()
@@ -96,7 +59,7 @@ const handleSubmit = async (e) => {
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-            prompt: data.get('prompt')
+            prompt: conversationHistory
         })
     })
 
@@ -105,7 +68,10 @@ const handleSubmit = async (e) => {
 
     if (response.ok) {
         const data = await response.json();
-        const parsedData = data.bot.trim() // trims any trailing spaces/'\n' 
+        const parsedData = data.bot.trim()
+
+        // Append bot's message to the conversation history
+        conversationHistory += `Bot: ${parsedData}\n`;
 
         typeText(messageDiv, parsedData)
     } else {

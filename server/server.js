@@ -25,40 +25,18 @@ app.post('/', async (req, res) => {
   try {
     const prompt = req.body.prompt;
 
-    // Check if the user is asking for the bot's name
-    if (prompt.toLowerCase().includes('your name?') || prompt.toLowerCase().includes('what should I call you') || prompt.toLowerCase().includes('what is your name?') || prompt.toLowerCase().includes('whats is your name?')) {
-      res.status(200).send({
-        bot: 'You can call me SB3.ai. What can I help you with today?'
-      });
-    } else if (prompt.toLowerCase().includes('ar you a humane or bot') || prompt.toLowerCase().includes('who you are?') || prompt.toLowerCase().includes('who are you?')) {
-      res.status(200).send({
-        bot: 'As an SB3 AI, I am an artificial intelligence program designed to perform various tasks and provide information to users. I was developed using advanced machine learning techniques, and I am capable of processing large amounts of data, learning from examples, and improving my performance over time. My purpose is to assist users with a wide range of tasks, such as answering questions, providing recommendations, performing calculations, and more. Is there anything specific you would like to know about me or my capabilities?'
-      });
-    } else if (prompt.toLowerCase().includes('how old are you?') || prompt.toLowerCase().includes('what is your age?')) {
-      res.status(200).send({
-        bot: 'As an SB3 AI, I don\'t have an age in the traditional sense, as I am not a living being. I was developed by SB3.ai in 2023, but I am constantly learning and improving through ongoing updates and enhancements.'
-      });
-    }
-    else if (prompt.trim() === '') {
-      res.status(200).send({
-        bot: 'Sorry, I didn\'t understand your message. Could you please ask a question or provide some information that I can help you with?'
-      });
-    }
-
-    
-
     const response = await openai.createCompletion({
       model: "text-davinci-003",
       prompt: `I want you to act as an SB3 ai. ${prompt}`,
-      temperature: 0, // Higher values means the model will take more risks.
-      max_tokens: 3000, // The maximum number of tokens to generate in the completion. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
-      top_p: 1, // alternative to sampling with temperature, called nucleus sampling
-      frequency_penalty: 0.5, // Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
-      presence_penalty: 0, // Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+      temperature: 0.5,
+      max_tokens: 150,
+      top_p: 1,
+      frequency_penalty: 0.5,
+      presence_penalty: 0,
     });
 
     res.status(200).send({
-      bot: response.data.choices[0].text
+      bot: response.data.choices[0].text.trim()
     });
 
   } catch (error) {
